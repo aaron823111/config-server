@@ -1,0 +1,105 @@
+server:
+  port: 8083
+  contextPath: /pi6000-bpm-web
+  tomcat:
+    uri-encoding: UTF-8
+  session:
+    timeout: 3600
+    
+eureka:
+  client:
+    enabled: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: false
+    
+spring:
+  application:
+    name: pi6000-bpm-web
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+  redis:
+    host: 172.16.200.1
+    port: 6379
+  session:
+    #REDIS使用redis作为会话存储、NONE则使用中间件的会话，用户登录信息使用EHcache存储,默认为EHcache存储
+    storeType: NONE
+    
+px:
+  datasource:
+    dataSource:
+      type: com.alibaba.druid.pool.DruidDataSource 
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/pi6000
+      username: root
+      password: root
+      initialSize: 5
+      maxActive: 20
+  bpm:
+    databaseSchemaUpdate: true
+    jobExecutorActivate: false
+    enableDatabaseEventLogging: false
+    activityFontName: 宋体
+    labelFontName: 宋体
+    mailServerHost: smtp.163.com
+    mailServerPort: 587
+    mailServerUseSSL: true
+    mailServerUseTLS: false
+    mailServerUsername: username@163.com
+    mailServerPassword: passwd
+    
+  ua:
+    #同步isc组织机构的Restful服务的url
+    appID: 1ae211c543a14cf6981274fec3281f0c
+    loginMode: parallel         #登录策略(kickout/single/parallel)
+    maxSession: 50
+    #1、isc_sso(ISC认证，PI6000 鉴权); 2、sso（PI6000 单点登录）; 3、workbench
+    authMode: workbench
+    #是否启用方法注解权限校验
+    methodAuthz:
+      enabled: true
+    auth:
+      #是否启用登录认证和权限校验
+      enabled: false
+      loginURL: /bpm-console/login.html
+      successURL: /main/main.jsp
+      unauthURL: /errorpages/401.htm
+      
+      #url权限校验拦截器，采用短路拦截规则，优先级: annoAutzPath->annoAutzPath->urlAutzPath
+      #匿名认证拦截器
+      annoAutzPath:
+        - /index.jsp
+        - /bpm-console/login.html
+        - /**/*.htm
+        - /**/*.html
+        - /hessian/**
+        - /test.jsp
+        - /api/**
+      #登录认证拦截器
+      loginAutzPath:     
+        - /main/main.jsp
+        - /bpm_delegatetaskwin/delegatetaskwin.jsp
+        - /bpm_selectproxy/selectproxy.jsp
+        - /bpm_taskdelegate/index.jsp
+        - /bpm_taskdelegateform/taskdelegateform.jsp
+        - /bpm_taskdelegateformpart/taskdelegateformpart.jsp
+        - /bpm_upload_model/upload_model.jsp
+        - /bpm-bpmodeler-freeselect/freesel.jsp
+        - /bpm-client/index.jsp
+        - /bpm-client-deliver/index.jsp
+        - /bpm-client-processdef/viewProcessDetail.jsp
+        - /bpm-client-usersetting/index.jsp
+        - /bpm-grpinfo/group.jsp
+        - /bpm-participant/participant.jsp
+        - /bpm-pkgtree/pkgtree.jsp
+        - /bpm-prcdinfo/processdef.jsp
+        - /bpm-subprocess/subprocess.jsp
+        - /
+      #菜单URL和功能认下拦截器
+      urlAutzPath:           
+        - /**
+    sso:
+      ssoServer: http://localhost:8080/pi6000-ua-sso        #单点登录服务地址,建议配置成网关的单点登录地址
+  
