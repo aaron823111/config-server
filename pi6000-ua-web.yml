@@ -100,5 +100,3 @@ px:
         - /**
     sso:
       ssoServer: http://localhost/pi6000-ua-sso        #单点登录服务地址，建议配置成网关单点登录地址
-    
-  
