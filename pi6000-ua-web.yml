@@ -8,14 +8,9 @@ server:
     
 eureka:
   client:
-    enabled: true
+    enabled: false
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-  instance:
-    preferIpAddress: true
-    statusPageUrlPath: /${spring.application.name}/info
-    healthCheckUrlPath: /${spring.application.name}/health
-    homePageUrlPath: /${spring.application.name}
 
 management.security.enabled: false
 #management.context-path: /details 
