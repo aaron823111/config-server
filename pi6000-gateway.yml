@@ -1,0 +1,94 @@
+server:
+  port: 80
+  tomcat:
+    uri-encoding: UTF-8
+  session:
+    timeout: 3600
+    
+eureka:
+  client:
+    registerWithEureka: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+    instance:
+      preferIpAddress: true
+      
+zuul:
+  addProxyHeaders: true
+  sensitiveHeaders: 
+  addHostHeader: true
+  routes:
+    task-web:
+      path: /pi6000-task-web/**
+      stripPrefix: false
+      serviceId: pi6000-task-web
+    ua-web:
+      path: /pi6000-ua-web/**
+      stripPrefix: false
+      serviceId: pi6000-ua-web
+    bpm-web:
+      path: /pi6000-bpm-web/**
+      stripPrefix: false
+      serviceId: pi6000-bpm-web
+    sso-web:
+      path: /pi6000-ua-sso/**
+      stripPrefix: false
+      serviceId: pi6000-ua-sso
+    test:
+      path: /pi6000-test/**
+      serviceId: pi6000-test
+      
+ribbon.eureka.enabled: true
+    
+hystrix.command.default.execution.timeout.enabled: false
+    
+spring:
+  application:
+    name: pi6000-gateway
+  redis:
+    host: localhost
+    port: 6379
+  session:
+    #REDIS使用redis作为会话存储、NONE则使用中间件的会话，用户登录信息使用EHcache存储,默认为EHcache存储
+    storeType: REDIS
+    
+px:
+  ua:
+    appID: 1ae211c543a14cf6981274fec3281f0c
+    loginMode: parallel         #登录策略(kickout/single/parallel)
+    maxSession: 50
+    #1、isc_sso(ISC认证，PI6000 鉴权); 2、sso（PI6000 单点登录）; 3、workbench
+    authMode: sso
+    #是否启用方法注解权限校验
+    methodAuthz:
+      enabled: true
+    auth:
+      #是否启用登录认证和权限校验
+      enabled: false
+      loginURL: /gw-console/login.html
+      successURL: /index.html
+      unauthURL: /errorpages/401.htm
+      
+      #url权限校验拦截器，采用短路拦截规则，优先级: annoAutzPath->annoAutzPath->urlAutzPath
+      #匿名认证拦截器
+      annoAutzPath:                
+        - /pi6000-task-web/td-console/login.html
+        - /pi6000-ua-web/ua-console/login.html
+        - /pi6000-bpm-web/bpm-console/login.html
+        - /**/*.html
+        - /**/*.htm
+        - /errorpages/**
+        - /**/api/**
+        - /**/hessian/**
+      #登录认证拦截器
+      loginAutzPath:
+        - /index.html                
+        - /pi6000-task-web/**
+        - /pi6000-ua-web/**
+        - /pi6000-bpm-web/**
+        - /pi6000-test/**
+      #菜单URL和功能认下拦截器
+      urlAutzPath:                  
+        - /**
+    sso:
+      ssoServer: http://localhost:8080/pi6000-ua-sso  #单点登录服务地址
