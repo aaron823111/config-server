@@ -1,0 +1,51 @@
+server:
+  port: 8080
+  contextPath: /pi6000-ua-sso
+  tomcat:
+    uri-encoding: UTF-8
+  
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  
+spring:
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+  application:
+    name: pi6000-ua-sso
+
+tableSchema: 
+
+px:
+  datasource:
+    dataSource:
+      type: com.alibaba.druid.pool.DruidDataSource 
+      driverClassName: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/pi6000
+      username: root
+      password: root
+      initialSize: 5
+      maxActive: 20
+#    dataSource:
+#      type: com.alibaba.druid.pool.DruidDataSource 
+#      driverClassName: oracle.jdbc.driver.OracleDriver
+#      url: jdbc:oracle:thin:@172.16.130.142:1521:pi6000cs
+#      username: pi6000
+#      password: PI6000
+#      initialSize: 5
+#      maxActive: 20
+  sso:
+    sql:
+      validateUser: select user_pwd,user_id from ${tableSchema}pt_ua_user where user_name =? and user_status=1
+      loginLog: insert into ${tableSchema}pt_ua_userlogin (userlogin_id,userlogin_userid, userlogin_sessionid, userlogin_name,userlogin_ip,userlogin_stime,userlogin_appid)values(?,?,?,?,?,?,?)
+      logoutLog: update ${tableSchema}pt_ua_userlogin set userlogin_etime = ? where userlogin_sessionid=?
+    st:
+      timeToKillInSeconds: 1000
+    tgt:
+      maxTimeToLiveInSeconds: 28800
+      timeToKillInSeconds: 7200
+       
+    
