@@ -1,0 +1,19 @@
+server:
+  port: 8761
+  
+eureka:
+  instance:
+    hostname: localhost
+    preferIpAddress: true
+  server:
+    enable-self-preservation: false
+    #eviction-interval-timer-in-ms: 5000
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      
+spring:
+  application:
+    name: pi6000-discover-server
