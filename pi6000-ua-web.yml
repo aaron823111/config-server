@@ -4,7 +4,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
   session:
-    timeout: 288000000
+    timeout: 3600
     
 eureka:
   client:
@@ -55,7 +55,6 @@ px:
       filters: config
       connectionProperties: config.decrypt=false;
 
-      
   ua:
     #同步isc组织机构的Restful服务的url
     iscAdapterUrl: http://172.16.200.31:7002/isc_frontmv_serv
