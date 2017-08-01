@@ -1,50 +1,49 @@
 server:
-  port: 8081
-  contextPath: /pi6000-task-web
+  port: 8082
+  contextPath: /pi6000-ua-web
   tomcat:
     uri-encoding: UTF-8
   session:
-    timeout: 3600
-
-debug: false
-#server.jsp-servlet.init-parameters.development: true
-
+    timeout: 288000000
+    
 eureka:
   client:
-    enabled: false
+    enabled: true
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
   instance:
-    leaseRenewalIntervalInSeconds: 5
-    leaseExpirationDurationInSeconds: 5
-    preferIpAddress: false
+    preferIpAddress: true
+    statusPageUrlPath: /${spring.application.name}/info
+    healthCheckUrlPath: /${spring.application.name}/health
+    homePageUrlPath: /${spring.application.name}
+
+management.security.enabled: false
+#management.context-path: /details 
 
 spring:
   application:
-    name: pi6000-task-web
-  
+    name: pi6000-ua-web
+
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+08:00
+    parser:      
+      ALLOW_UNQUOTED_FIELD_NAMES: true
+      ALLOW_SINGLE_QUOTES: true
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
   redis:
     host: localhost
     port: 6379
   session:
     #REDIS使用redis作为会话存储、NONE则使用中间件的会话，用户登录信息使用EHcache存储,默认为EHcache存储
-    storeType: NONE
+    storeType: REDIS
     
 px:
   datasource:
-#    dataSource:
-#      type: com.alibaba.druid.pool.DruidDataSource 
-#      driverClassName: com.informix.jdbc.IfxDriver
-#      url: jdbc:informix-sqli://172.16.221.171:9088/nr_db:INFORMIXSERVER=gbaseserver;CLIENT_LOCALE=zh_cn.utf8;DB_LOCALE=zh_cn.utf8;ifx_lock_mode_wait=5
-#      username: informix
-#      password: informix
-#      initialSize: 5
-#      maxActive: 20
-#      filters: config
-#      connectionProperties: config.decrypt=false;
+    #默认主数据源的名称为dataSource
     dataSource:
       type: com.alibaba.druid.pool.DruidDataSource 
       driverClassName: com.mysql.jdbc.Driver
@@ -53,41 +52,54 @@ px:
       password: root
       initialSize: 5
       maxActive: 20
+      filters: config
+      connectionProperties: config.decrypt=false;
 
+      
   ua:
+    #同步isc组织机构的Restful服务的url
+    iscAdapterUrl: http://172.16.200.31:7002/isc_frontmv_serv
+    #长期未登录用户审计时间（单位：天）
+    unloginTime: 180
     appID: 1ae211c543a14cf6981274fec3281f0c
     loginMode: parallel         #登录策略(kickout/single/parallel)
     maxSession: 50
-    #1、sso（PI6000 单点登录）; 2、workbench
+    #1、isc_sso(ISC认证，PI6000 鉴权); 2、sso（PI6000 单点登录）; 3、workbench
     authMode: sso
     #是否启用方法注解权限校验
-    methodAuthz:
-      enabled: true
+    methodAuthz.enabled: true
     auth:
       #是否启用登录认证和权限校验
       enabled: false
-      loginURL: /td-console/login.html
-      successURL: /td-tdmgr/index.jsp
+      loginURL: /ua-console/login.html
+      successURL: /ua-mgr/index.jsp
       unauthURL: /errorpages/401.htm
       
       #url权限校验拦截器，采用短路拦截规则，优先级: annoAutzPath->annoAutzPath->urlAutzPath
       #匿名认证拦截器
-      annoAutzPath:                
-        - /td-console/login.html
+      annoAutzPath:
         - /errorpages/401.htm
         - /**/*.htm
         - /**/*.html
-        - /api/**
         - /hessian/**
+        - /api/ua/auth/**
       #登录认证拦截器
-      loginAutzPath:                
-        - /td-tdmgr/index.jsp
-        - /td-tasktree/tasktree.jsp
-        - /test.jsp
-        - /td-tectree/tectree.jsp
+      loginAutzPath:     
+        - /ua-mgr/index.jsp
+        - /ua-welcome/welcome.jsp
+        - /ua-roleentrust/roleentrust.jsp
+        - /ua-menutree/menutree.jsp
+        - /ua-functree/functree.jsp
+        - /ua-usertree/usertree.jsp
+        - /ua-approletree/approletree.jsp
+        - /ua-orgroletree/orgroletree.jsp
+        - /ua-service/service.jsp
+        - /api/**
         - /
       #菜单URL和功能认下拦截器
-      urlAutzPath:                  
+      urlAutzPath:           
         - /**
     sso:
       ssoServer: http://localhost/pi6000-ua-sso        #单点登录服务地址，建议配置成网关单点登录地址
+    
+  
