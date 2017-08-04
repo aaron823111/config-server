@@ -24,7 +24,7 @@ px:
     dataSource:
       type: com.alibaba.druid.pool.DruidDataSource 
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.0.119:3306/pi6000
+      url: jdbc:mysql://AARON98-PC:3306/pi6000
       username: root
       password: root
       initialSize: 5
