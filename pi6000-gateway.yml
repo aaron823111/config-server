@@ -10,8 +10,8 @@ eureka:
     registerWithEureka: true
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
-    instance:
-      preferIpAddress: true
+  instance:
+    preferIpAddress: true
       
 zuul:
   addProxyHeaders: true
