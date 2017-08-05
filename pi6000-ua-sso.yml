@@ -9,6 +9,8 @@ eureka:
     enabled: true
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
+    instance:
+      preferIpAddress: true
   
 spring:
   jackson:
