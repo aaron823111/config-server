@@ -11,7 +11,7 @@ debug: false
 
 eureka:
   client:
-    enabled: false
+    enabled: true
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
   instance:
