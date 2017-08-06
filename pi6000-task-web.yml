@@ -13,7 +13,7 @@ eureka:
   client:
     enabled: false
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://discovery:8761/eureka/
   instance:
     leaseRenewalIntervalInSeconds: 5
     leaseExpirationDurationInSeconds: 5
@@ -65,7 +65,7 @@ px:
       enabled: true
     auth:
       #是否启用登录认证和权限校验
-      enabled: false
+      enabled: true
       loginURL: /td-console/login.html
       successURL: /td-tdmgr/index.jsp
       unauthURL: /errorpages/401.htm
@@ -90,4 +90,4 @@ px:
       urlAutzPath:                  
         - /**
     sso:
-      ssoServer: http://localhost/pi6000-ua-sso        #单点登录服务地址，建议配置成网关单点登录地址
+      ssoServer: http://192.168.99.100:8080/pi6000-ua-sso        #单点登录服务地址，建议配置成网关单点登录地址
