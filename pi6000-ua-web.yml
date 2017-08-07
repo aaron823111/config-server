@@ -15,7 +15,6 @@ eureka:
     preferIpAddress: true
 
 management.security.enabled: false
-#management.context-path: /details 
 
 spring:
   application:
@@ -59,9 +58,11 @@ px:
     unloginTime: 180
     appID: 1ae211c543a14cf6981274fec3281f0c
     loginMode: parallel         #登录策略(kickout/single/parallel)
+    maxCaptchaCount: 3        #用户和密码输入错误几次，出现验证码(若设为为0，表示默认显示验证码)
+    maxCaptchaTime: 1 
     maxSession: 50
     #1、isc_sso(ISC认证，PI6000 鉴权); 2、sso（PI6000 单点登录）; 3、workbench
-    authMode: sso
+    authMode: workbench
     #是否启用方法注解权限校验
     methodAuthz.enabled: true
     auth:
