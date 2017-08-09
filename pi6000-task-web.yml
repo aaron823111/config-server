@@ -48,7 +48,7 @@ px:
     dataSource:
       type: com.alibaba.druid.pool.DruidDataSource 
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.0.119:3306/pi6000
+      url: jdbc:mysql://192.168.42.155:3306/pi6000
       username: root
       password: root
       initialSize: 5
@@ -57,6 +57,8 @@ px:
   ua:
     appID: 1ae211c543a14cf6981274fec3281f0c
     loginMode: parallel         #登录策略(kickout/single/parallel)
+    maxCaptchaCount: 1        #用户和密码输入错误几次，出现验证码(若设为为0，表示默认显示验证码)
+    maxCaptchaTime: 1 
     maxSession: 50
     #1、sso（PI6000 单点登录）; 2、workbench
     authMode: sso
