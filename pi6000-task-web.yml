@@ -35,16 +35,6 @@ spring:
     
 px:
   datasource:
-#    dataSource:
-#      type: com.alibaba.druid.pool.DruidDataSource 
-#      driverClassName: com.informix.jdbc.IfxDriver
-#      url: jdbc:informix-sqli://172.16.221.171:9088/nr_db:INFORMIXSERVER=gbaseserver;CLIENT_LOCALE=zh_cn.utf8;DB_LOCALE=zh_cn.utf8;ifx_lock_mode_wait=5
-#      username: informix
-#      password: informix
-#      initialSize: 5
-#      maxActive: 20
-#      filters: config
-#      connectionProperties: config.decrypt=false;
     dataSource:
       type: com.alibaba.druid.pool.DruidDataSource 
       driverClassName: com.mysql.jdbc.Driver
