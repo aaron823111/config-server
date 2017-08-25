@@ -9,15 +9,6 @@ server:
 debug: false
 #server.jsp-servlet.init-parameters.development: true
 
-eureka:
-  client:
-    enabled: true
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
-  instance:
-    leaseRenewalIntervalInSeconds: 5
-    leaseExpirationDurationInSeconds: 5
-    preferIpAddress: false
 
 spring:
   application:
@@ -26,24 +17,8 @@ spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+08:00
-  redis:
-    host: localhost
-    port: 6379
-  session:
-    #REDIS使用redis作为会话存储、NONE则使用中间件的会话，用户登录信息使用EHcache存储,默认为EHcache存储
-    storeType: NONE
     
 px:
-  datasource:
-    dataSource:
-      type: com.alibaba.druid.pool.DruidDataSource 
-      driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://192.168.42.155:3306/pi6000
-      username: root
-      password: root
-      initialSize: 5
-      maxActive: 20
-
   ua:
     appID: 1ae211c543a14cf6981274fec3281f0c
     loginMode: parallel         #登录策略(kickout/single/parallel)
