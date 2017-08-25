@@ -49,7 +49,7 @@ px:
     maxCaptchaTime: 1 
     maxSession: 50
     #1、isc_sso(ISC认证，PI6000 鉴权); 2、sso（PI6000 单点登录）; 3、workbench
-    authMode: workbench
+    authMode: sso
     #是否启用方法注解权限校验
     methodAuthz.enabled: true
     auth:
