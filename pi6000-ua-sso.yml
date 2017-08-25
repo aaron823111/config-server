@@ -22,23 +22,6 @@ spring:
 tableSchema: 
 
 px:
-#  datasource:
-#    dataSource:
-#      type: com.alibaba.druid.pool.DruidDataSource 
-#      driverClassName: com.mysql.jdbc.Driver
-#      url: jdbc:mysql://10.148.70.181:3306/pi6000
-#      username: root
-#      password: root
-#      initialSize: 5
-#      maxActive: 20
-#    dataSource:
-#      type: com.alibaba.druid.pool.DruidDataSource 
-#      driverClassName: oracle.jdbc.driver.OracleDriver
-#      url: jdbc:oracle:thin:@172.16.130.142:1521:pi6000cs
-#      username: pi6000
-#      password: PI6000
-#      initialSize: 5
-#      maxActive: 20
   sso:
     sql:
       validateUser: select user_pwd,user_id from ${tableSchema}pt_ua_user where user_name =? and user_status=1
