@@ -22,15 +22,15 @@ spring:
 tableSchema: 
 
 px:
-  datasource:
-    dataSource:
-      type: com.alibaba.druid.pool.DruidDataSource 
-      driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://10.148.70.181:3306/pi6000
-      username: root
-      password: root
-      initialSize: 5
-      maxActive: 20
+#  datasource:
+#    dataSource:
+#      type: com.alibaba.druid.pool.DruidDataSource 
+#      driverClassName: com.mysql.jdbc.Driver
+#      url: jdbc:mysql://10.148.70.181:3306/pi6000
+#      username: root
+#      password: root
+#      initialSize: 5
+#      maxActive: 20
 #    dataSource:
 #      type: com.alibaba.druid.pool.DruidDataSource 
 #      driverClassName: oracle.jdbc.driver.OracleDriver
