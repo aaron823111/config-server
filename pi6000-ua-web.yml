@@ -70,4 +70,4 @@ px:
       urlAutzPath:           
         - /**
     sso:
-      ssoServer: http://192.168.99.100:8080/pi6000-ua-sso        #单点登录服务地址，建议配置成网关单点登录地址
+      ssoServer: http://192.168.99.100/pi6000-ua-sso        #单点登录服务地址，建议配置成网关单点登录地址
