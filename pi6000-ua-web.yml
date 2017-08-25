@@ -38,19 +38,6 @@ spring:
     storeType: NONE
     
 px:
-  datasource:
-    #默认主数据源的名称为dataSource
-    dataSource:
-      type: com.alibaba.druid.pool.DruidDataSource 
-      driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://10.148.70.181:3306/pi6000
-      username: root
-      password: root
-      initialSize: 5
-      maxActive: 20
-      filters: config
-      connectionProperties: config.decrypt=false;
-
   ua:
     #同步isc组织机构的Restful服务的url
     iscAdapterUrl: http://172.16.200.31:7002/isc_frontmv_serv
