@@ -5,14 +5,6 @@ server:
     uri-encoding: UTF-8
   session:
     timeout: 3600
-    
-eureka:
-  client:
-    enabled: true
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
-  instance:
-    preferIpAddress: true
 
 management.security.enabled: false
 
