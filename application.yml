@@ -5,6 +5,16 @@ spring:
   session:
     #REDIS使用redis作为会话存储、NONE则使用中间件的会话，用户登录信息使用EHcache存储,默认为EHcache存储
     storeType: REDIS
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+08:00
+    parser:      
+      ALLOW_UNQUOTED_FIELD_NAMES: true
+      ALLOW_SINGLE_QUOTES: true
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    serialization:
+      FAIL_ON_EMPTY_BEANS: false
     
 management.security.enabled: false    
 
