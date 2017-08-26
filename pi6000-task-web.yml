@@ -32,7 +32,7 @@ px:
       enabled: true
     auth:
       #是否启用登录认证和权限校验
-      enabled: true
+      enabled: false
       loginURL: /td-console/login.html
       successURL: /td-tdmgr/index.jsp
       unauthURL: /errorpages/401.htm
