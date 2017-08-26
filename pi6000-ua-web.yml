@@ -40,7 +40,7 @@ px:
     methodAuthz.enabled: true
     auth:
       #是否启用登录认证和权限校验
-      enabled: true
+      enabled: false
       loginURL: /ua-console/login.html
       successURL: /ua-mgr/index.jsp
       unauthURL: /errorpages/401.htm
