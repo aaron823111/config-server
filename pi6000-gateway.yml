@@ -3,15 +3,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
   session:
-    timeout: 3600
-    
-#eureka:
-#  client:
-#    registerWithEureka: true
-#    serviceUrl:
-#      defaultZone: http://discovery:8761/eureka/
-#  instance:
-#    preferIpAddress: true
+    timeout: 300
       
 zuul:
   addProxyHeaders: true
