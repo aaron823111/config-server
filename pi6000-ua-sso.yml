@@ -4,20 +4,9 @@ server:
   tomcat:
     uri-encoding: UTF-8
   
-eureka:
-  client:
-    enabled: true
-    serviceUrl:
-      defaultZone: http://discovery:8761/eureka/
-  instance:
-    preferIpAddress: true
-  
-spring:
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+08:00
-  application:
-    name: pi6000-ua-sso
+#spring:
+#  application:
+#    name: pi6000-ua-sso
 
 tableSchema: 
 
