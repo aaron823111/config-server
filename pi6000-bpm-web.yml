@@ -6,37 +6,11 @@ server:
   session:
     timeout: 3600
     
-eureka:
-  client:
-    enabled: false
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-  instance:
-    preferIpAddress: false
-    
 spring:
   application:
     name: pi6000-bpm-web
-  jackson:
-    date-format: yyyy-MM-dd HH:mm:ss
-    time-zone: GMT+08:00
-  redis:
-    host: 172.16.200.1
-    port: 6379
-  session:
-    #REDIS使用redis作为会话存储、NONE则使用中间件的会话，用户登录信息使用EHcache存储,默认为EHcache存储
-    storeType: NONE
     
 px:
-  datasource:
-    dataSource:
-      type: com.alibaba.druid.pool.DruidDataSource 
-      driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/pi6000
-      username: root
-      password: root
-      initialSize: 5
-      maxActive: 20
   bpm:
     databaseSchemaUpdate: true
     jobExecutorActivate: false
@@ -101,5 +75,5 @@ px:
       urlAutzPath:           
         - /**
     sso:
-      ssoServer: http://localhost:8080/pi6000-ua-sso        #单点登录服务地址,建议配置成网关的单点登录地址
+      ssoServer: http://192.168.99.100/pi6000-ua-sso        #单点登录服务地址,建议配置成网关的单点登录地址
   
