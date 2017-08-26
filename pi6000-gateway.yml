@@ -45,12 +45,6 @@ hystrix.command.default.execution.timeout.enabled: false
 spring:
   application:
     name: pi6000-gateway
-  redis:
-    host: localhost
-    port: 6379
-  session:
-    #REDIS使用redis作为会话存储、NONE则使用中间件的会话，用户登录信息使用EHcache存储,默认为EHcache存储
-    storeType: NONE
     
 px:
   ua:
