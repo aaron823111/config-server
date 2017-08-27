@@ -2,7 +2,10 @@ server:
   port: 8088
   tomcat:
     uri-encoding: UTF-8
-
+spring:
+  application:
+    name: pi6000-taskdemo
+    
 task:
   serviceUrl: http://pi6000-task-web/pi6000-task-web/hessian
   restUrl: http://pi6000-task-web/pi6000-task-web/api
