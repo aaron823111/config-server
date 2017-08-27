@@ -3,7 +3,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
   session:
-    timeout: 300
+    timeout: 3600
       
 zuul:
   addProxyHeaders: true
