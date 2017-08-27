@@ -6,9 +6,9 @@ server:
   session:
     timeout: 3600
 
-#spring:
-#  application:
-#    name: pi6000-ua-web
+spring:
+  application:
+    name: pi6000-ua-web
     
 px:
   ua:
