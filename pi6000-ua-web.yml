@@ -3,8 +3,6 @@ server:
   contextPath: /pi6000-ua-web
   tomcat:
     uri-encoding: UTF-8
-  session:
-    timeout: 3600
 
 spring:
   application:
