@@ -57,7 +57,8 @@ px:
       
       #url权限校验拦截器，采用短路拦截规则，优先级: annoAutzPath->annoAutzPath->urlAutzPath
       #匿名认证拦截器
-      annoAutzPath:                
+      annoAutzPath:   
+        - /beans/**
         - /pi6000-task-web/td-console/login.html
         - /pi6000-ua-web/ua-console/login.html
         - /pi6000-bpm-web/bpm-console/login.html
