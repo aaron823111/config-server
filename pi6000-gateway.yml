@@ -38,6 +38,8 @@ spring:
     
 px:
   ua:
+    isc:
+      enabled: true
     csrf:
       enabled: true
     appID: 1ae211c543a14cf6981274fec3281f0c
