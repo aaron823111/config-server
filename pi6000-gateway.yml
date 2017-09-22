@@ -38,6 +38,8 @@ spring:
     
 px:
   ua:
+    csrf:
+      enabled: true
     appID: 1ae211c543a14cf6981274fec3281f0c
     loginMode: parallel         #登录策略(kickout/single/parallel)
     maxSession: 50
