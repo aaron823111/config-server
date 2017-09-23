@@ -39,4 +39,4 @@ eureka:
     serviceUrl:
       defaultZone: http://discovery:8761/eureka/
   instance:
-    preferIpAddress: true
+    preferIpAddress: false
