@@ -40,7 +40,7 @@ px:
   ua:
     iscAdapterUrl: http://172.16.200.31:7002/isc_frontmv_serv
     isc:
-      enabled: true
+      enabled: false
     csrf:
       enabled: true
     appID: 1ae211c543a14cf6981274fec3281f0c
@@ -73,7 +73,7 @@ px:
       #登录认证拦截器
       loginAutzPath:
         - /index.html                
-        #- /pi6000-task-web/**
+        - /pi6000-task-web/**
         - /pi6000-ua-web/**
         - /pi6000-bpm-web/**
         - /pi6000-test/**
