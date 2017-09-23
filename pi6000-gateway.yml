@@ -38,6 +38,7 @@ spring:
     
 px:
   ua:
+    iscAdapterUrl: http://172.16.200.31:7002/isc_frontmv_serv
     isc:
       enabled: true
     csrf:
