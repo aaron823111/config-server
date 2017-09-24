@@ -41,8 +41,6 @@ px:
     iscAdapterUrl: http://172.16.200.31:7002/isc_frontmv_serv
     isc:
       enabled: false
-    csrf:
-      enabled: true
     appID: 1ae211c543a14cf6981274fec3281f0c
     loginMode: parallel         #登录策略(kickout/single/parallel)
     maxSession: 3
