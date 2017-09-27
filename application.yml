@@ -5,7 +5,7 @@ server:
 spring:
   cloud:
     inetutils:
-      ignored-interfaces:
+      ignoredInterfaces:
         - eth0
         - eht1
   redis:
