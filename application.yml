@@ -3,6 +3,10 @@ server:
     timeout: 3600
 
 spring:
+  cloud:
+    inetutils:
+      ignored-interfaces:
+        - eth0
   redis:
     host: 192.168.99.100
     port: 6379
@@ -32,7 +36,7 @@ px:
       password: root
       initialSize: 5
       maxActive: 20
-      
+
 eureka:
   client:
     enabled: true
