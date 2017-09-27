@@ -4,6 +4,9 @@ server:
     uri-encoding: UTF-8
       
 zuul:
+  host:
+    socket-timeout-millis: 60000
+    connect-timeout-millis: 60000
   addProxyHeaders: true
   sensitiveHeaders: 
   addHostHeader: true
