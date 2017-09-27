@@ -46,3 +46,4 @@ eureka:
       defaultZone: http://discovery:8761/eureka/
   instance:
     preferIpAddress: false
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${server.port}
