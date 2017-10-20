@@ -33,7 +33,7 @@ px:
     dataSource:
       type: com.alibaba.druid.pool.DruidDataSource 
       driverClassName: com.mysql.jdbc.Driver
-      url: jdbc:mysql://mysql:3306/pi6000
+      url: jdbc:mysql://mysql:3306/pi6000?zeroDateTimeBehavior=convertToNull&autoReconnect=true&characterEncoding=UTF-8&characterSetResults=UTF-8
       username: root
       password: root
       initialSize: 5
