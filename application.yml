@@ -6,8 +6,8 @@ spring:
   cloud:
     inetutils:
       ignoredInterfaces:
-        - eth1
-        - eth2
+#        - eth1
+#        - eth2
        
   redis:
     host: 192.168.99.100
