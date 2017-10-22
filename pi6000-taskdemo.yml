@@ -3,7 +3,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
     
-eureka.instance.hostName: taskdemo
+#eureka.instance.hostName: taskdemo
     
 task:
   serviceUrl: http://pi6000-task-web/pi6000-task-web/hessian
