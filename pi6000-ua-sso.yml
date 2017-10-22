@@ -4,7 +4,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
     
-eureka.instance.hostName: uasso
+#eureka.instance.hostName: uasso
   
 spring:
   application:
