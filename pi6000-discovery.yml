@@ -3,7 +3,7 @@ server:
   
 eureka:
   instance:
-    hostname: localhost
+    hostName: discovery
     preferIpAddress: true
   server:
     enable-self-preservation: false
