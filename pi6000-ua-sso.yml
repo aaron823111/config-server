@@ -3,8 +3,6 @@ server:
   contextPath: /pi6000-ua-sso
   tomcat:
     uri-encoding: UTF-8
-    
-#eureka.instance.hostName: uasso
   
 spring:
   application:
