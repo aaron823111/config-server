@@ -7,6 +7,7 @@ server:
 debug: false
 #server.jsp-servlet.init-parameters.development: true
 
+eureka.instance.hostName: config-server1
 
 spring:
   application:
