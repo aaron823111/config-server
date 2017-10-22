@@ -8,10 +8,6 @@ debug: false
 #server.jsp-servlet.init-parameters.development: true
 
 #eureka.instance.hostName: task
-
-spring:
-  application:
-    name: pi6000-task-web
     
 px:
   ua:
