@@ -4,11 +4,7 @@ server:
   tomcat:
     uri-encoding: UTF-8
   
-spring:
-  application:
-    name: pi6000-ua-sso
-  redis:
-    database: 1
+spring.redis.database: 1
 
 tableSchema: 
 
