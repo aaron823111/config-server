@@ -4,7 +4,9 @@ server:
 
 spring:
   cloud:
-    inetutils:
+    inetutils::
+      preferredNetworks:
+ 
       ignoredInterfaces:
 #        - eth1
 #        - eth2
