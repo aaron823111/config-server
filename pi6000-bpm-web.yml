@@ -4,10 +4,6 @@ server:
   tomcat:
     uri-encoding: UTF-8
     
-#spring:
-#  application:
-#    name: pi6000-bpm-web
-    
 px:
   bpm:
     databaseSchemaUpdate: true
