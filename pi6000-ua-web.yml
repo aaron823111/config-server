@@ -4,12 +4,6 @@ server:
   tomcat:
     uri-encoding: UTF-8
     
-#eureka.instance.hostName: uaweb
-
-#spring:
-#  application:
-#    name: pi6000-ua-web
-    
 px:
   ua:
     #同步isc组织机构的Restful服务的url
