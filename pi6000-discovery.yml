@@ -3,8 +3,9 @@ server:
   
 eureka:
   instance:
-#    hostName: discovery
     preferIpAddress: true
+    lease-expiration-duration-in-seconds: 30  #过期时间
+    lease-renewal-interval-in-seconds: 10    #注册周期
   server:
     enable-self-preservation: false
     eviction-interval-timer-in-ms: 5000
