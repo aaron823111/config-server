@@ -7,7 +7,7 @@ eureka:
     preferIpAddress: true
   server:
     enable-self-preservation: false
-    #eviction-interval-timer-in-ms: 5000
+    eviction-interval-timer-in-ms: 5000
   client:
     registerWithEureka: false
     fetchRegistry: false
