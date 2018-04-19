@@ -10,14 +10,11 @@ tableSchema:
 
 px:
   sso:
-    sql:
-      validateUser: select user_pwd,user_id from ${tableSchema}pt_ua_user where user_name =? and user_status=1
-      loginLog: insert into ${tableSchema}pt_ua_userlogin (userlogin_id,userlogin_userid, userlogin_sessionid, userlogin_name,userlogin_ip,userlogin_stime,userlogin_appid)values(?,?,?,?,?,?,?)
-      logoutLog: update ${tableSchema}pt_ua_userlogin set userlogin_etime = ? where userlogin_sessionid=?
-    st:
-      timeToKillInSeconds: 1000
+    authModel: username  # username/fullname
     tgt:
       maxTimeToLiveInSeconds: 28800
       timeToKillInSeconds: 7200
+    serviceList: 
+      - localhost  # 需要登录认证的服务，比如网关服务的ip
        
     
